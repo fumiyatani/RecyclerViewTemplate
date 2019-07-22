@@ -2,6 +2,7 @@ package jp.androidbook.recyclerviewtemplate
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import jp.androidbook.recyclerviewtemplate.grid.GridSelectionFragment
 import jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment
 import jp.androidbook.recyclerviewtemplate.util.fragmentReplace
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.navigation_grid -> {
                     // TODO 第三引数のフラグメントを入れ替える
-                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
+                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, GridSelectionFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
 

@@ -12,8 +12,7 @@ import jp.androidbook.recyclerviewtemplate.R
 import kotlinx.android.synthetic.main.fragment_simple_recycler.view.*
 
 /**
- * A simple [Fragment] subclass.
- *
+ * SimpleなRecyclerViewのサンプル
  */
 class SimpleRecyclerFragment : Fragment(),
     SimpleRecyclerViewAdapter.SimpleRecyclerViewTappedListener {

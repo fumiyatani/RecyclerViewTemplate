@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".grid.GridFragment">
+    tools:context=".grid.three.ThreeGridFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
