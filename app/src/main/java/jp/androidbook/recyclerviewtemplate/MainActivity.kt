@@ -1,30 +1,46 @@
 package jp.androidbook.recyclerviewtemplate
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment
+import jp.androidbook.recyclerviewtemplate.util.fragmentReplace
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), SimpleRecyclerViewAdapter.SimpleRecyclerViewTappedListener {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val array = Array(100) {"テスト $it"}
+        if (savedInstanceState === null) {
+            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
+        }
 
-        simpleRecyclerView.apply {
-            layoutManager = LinearLayoutManager(
-                    this@MainActivity,
-                    RecyclerView.VERTICAL,
-                    false)
-            adapter = SimpleRecyclerViewAdapter(array, this@MainActivity)
+        // Selected したら true を返すようにする
+        bottomNavigation.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.navigation_simple -> {
+                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                R.id.navigation_grid -> {
+                    // TODO 第三引数のフラグメントを入れ替える
+                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                R.id.navigation_update -> {
+                    // TODO 第三引数のフラグメントを入れ替える
+                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                else -> {
+                    return@setOnNavigationItemSelectedListener false
+                }
+            }
         }
     }
 
-    override fun onTapped(text: String) {
-        Toast.makeText(this, "${text}をタップ", Toast.LENGTH_SHORT).show()
-    }
 }
