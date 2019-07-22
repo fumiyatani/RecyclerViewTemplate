@@ -16,7 +16,10 @@ class MainActivity : AppCompatActivity(), SimpleRecyclerViewAdapter.SimpleRecycl
         val array = Array(100) {"テスト $it"}
 
         simpleRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
+            layoutManager = LinearLayoutManager(
+                    this@MainActivity,
+                    RecyclerView.VERTICAL,
+                    false)
             adapter = SimpleRecyclerViewAdapter(array, this@MainActivity)
         }
     }
