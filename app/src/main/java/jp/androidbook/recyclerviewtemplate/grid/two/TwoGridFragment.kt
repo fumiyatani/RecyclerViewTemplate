@@ -5,27 +5,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import jp.androidbook.recyclerviewtemplate.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import jp.androidbook.recyclerviewtemplate.grid.GridTappedListener
+import kotlinx.android.synthetic.main.fragment_two_grid.view.*
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class TwoGridFragment : Fragment() {
+class TwoGridFragment : Fragment(), GridTappedListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_two_grid, container, false)
+
+        val itemView = inflater.inflate(R.layout.fragment_two_grid, container, false)
+
+        val array = Array(100) {i -> "テスト $i" }
+
+        val twoGridRecyclerView = itemView.twoGridRecyclerView
+        twoGridRecyclerView.apply {
+            layoutManager = GridLayoutManager(this@TwoGridFragment.context, 2)
+            adapter = TwoGridRecyclerViewAdapter(array, this@TwoGridFragment)
+        }
+
+        return itemView
     }
 
-
+    override fun onTappedGrid(text: String) {
+        Toast.makeText(context, "${text}をたっぷ", Toast.LENGTH_SHORT).show()
+    }
 }
