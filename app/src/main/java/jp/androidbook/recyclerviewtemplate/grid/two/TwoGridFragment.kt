@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.grid.tow
+package jp.androidbook.recyclerviewtemplate.grid.two
 
 
 import android.os.Bundle

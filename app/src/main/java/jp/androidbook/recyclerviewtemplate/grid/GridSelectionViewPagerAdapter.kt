@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment
-import jp.androidbook.recyclerviewtemplate.grid.tow.TwoGridFragment
+import jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment
 
 class GridSelectionViewPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
 
