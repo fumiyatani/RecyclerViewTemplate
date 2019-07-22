@@ -5,13 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_recycler_view_cell.view.*
+import kotlinx.android.synthetic.main.item_simple_recycler_view.view.*
 
-class RecyclerViewAdapter(val arrayList: ArrayList<String>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class SimpleRecyclerViewAdapter(private val arrayList: Array<String>, private val listener: SimpleRecyclerViewTappedListener): RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder>() {
+
+    interface SimpleRecyclerViewTappedListener {
+        fun onTapped(text: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
         val itemView = LayoutInflater.from(parent.context).inflate(
-                R.layout.item_recycler_view_cell,
+                R.layout.item_simple_recycler_view,
                 parent,
                 false
         )
@@ -24,6 +28,9 @@ class RecyclerViewAdapter(val arrayList: ArrayList<String>): RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setText(arrayList[position])
+        holder.itemView.setOnClickListener {
+            listener.onTapped(arrayList[position])
+        }
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
