@@ -7,3 +7,8 @@
 - 2列のGridを表示する
 - 3列のGridを表示する
 - リストの更新処理(これから実装)
+
+あとは趣旨からはそれるのですが、以下もサンプルとして残しています。
+- TabLayout
+- ViewPager
+- BottomNavigationView
