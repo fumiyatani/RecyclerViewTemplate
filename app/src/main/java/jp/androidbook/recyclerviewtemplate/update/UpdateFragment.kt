@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_update.view.*
 class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
 
     private lateinit var adapter: UpdateRecyclerViewAdapter
+    private var arrayList: ArrayList<String> = ArrayList(0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +32,7 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
 
         val itemView = inflater.inflate(R.layout.fragment_update, container, false)
 
-        val array = mutableListOf<String>()
-
-        adapter = UpdateRecyclerViewAdapter(array, this@UpdateFragment)
+        adapter = UpdateRecyclerViewAdapter(arrayList, this@UpdateFragment)
 
         val updateRecyclerView = itemView.updateRecyclerView
         updateRecyclerView.apply {
@@ -56,12 +55,17 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when(item?.itemId) {
             R.id.plus -> {
-                adapter.plusRecyclerView()
+                arrayList.add(arrayList.size, "テキスト ${arrayList.size}")
+                adapter.array = arrayList
                 true
             }
 
             R.id.clear -> {
-                adapter.clearRecyclerView()
+                if (arrayList.size - 1 < 1) {
+                    return true
+                }
+                arrayList.removeAt(arrayList.size - 1)
+                adapter.array = arrayList
                 true
             }
 

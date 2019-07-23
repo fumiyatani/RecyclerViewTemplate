@@ -8,8 +8,15 @@ import jp.androidbook.recyclerviewtemplate.R
 import jp.androidbook.recyclerviewtemplate.common.OnTappedRecyclerViewListener
 import kotlinx.android.synthetic.main.item_simple_recycler_view.view.*
 
-class UpdateRecyclerViewAdapter(private val array: MutableList<String>?, private val listener: OnTappedRecyclerViewListener)
+class UpdateRecyclerViewAdapter(array: List<String>, private val listener: OnTappedRecyclerViewListener)
     : RecyclerView.Adapter<UpdateRecyclerViewAdapter.ViewHolder>() {
+
+    // ここは公開する
+    var array: List<String> = array
+    set(array) {
+        field = array
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
@@ -21,27 +28,14 @@ class UpdateRecyclerViewAdapter(private val array: MutableList<String>?, private
     }
 
     override fun getItemCount(): Int {
-        return array?.size ?: 0
+        return array.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setText(array?.get(position) ?: "")
+        holder.setText(array.get(position))
         holder.itemView.setOnClickListener {
-            listener.onTapped(array?.get(position) ?: "")
+            listener.onTapped(array.get(position))
         }
-    }
-
-    fun plusRecyclerView() {
-        array?.add(array.size, "テキスト ${array.size}")
-        notifyDataSetChanged()
-    }
-
-    fun clearRecyclerView() {
-        if (array.isNullOrEmpty()) {
-            return
-        }
-        array.removeAt(array.size - 1)
-        notifyDataSetChanged()
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
