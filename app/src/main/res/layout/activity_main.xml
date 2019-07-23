@@ -43,7 +43,7 @@
         android:fitsSystemWindows="true">
 
         <include
-            layout="@layout/item_navigation_view_body"/>
+            layout="@layout/item_navigation_view"/>
 
     </com.google.android.material.navigation.NavigationView>
 
