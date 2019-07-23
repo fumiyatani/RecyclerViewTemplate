@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
 import kotlinx.android.synthetic.main.fragment_simple_recycler.view.*
 
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_simple_recycler.view.*
  * SimpleなRecyclerViewのサンプル
  */
 class SimpleRecyclerFragment : Fragment(),
-    SimpleRecyclerViewAdapter.SimpleRecyclerViewTappedListener {
+    OnTappedRecyclerViewListener {
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -8,14 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.R
-import jp.androidbook.recyclerviewtemplate.common.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import kotlinx.android.synthetic.main.fragment_update.view.*
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
+class UpdateFragment : Fragment(),
+    OnTappedRecyclerViewListener {
 
     private lateinit var adapter: UpdateRecyclerViewAdapter
 

@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.common
+package jp.androidbook.recyclerviewtemplate
 
 interface OnTappedRecyclerViewListener {
     fun onTapped(text: String)

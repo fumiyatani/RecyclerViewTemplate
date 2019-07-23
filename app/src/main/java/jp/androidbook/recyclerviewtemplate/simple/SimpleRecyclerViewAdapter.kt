@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
 import kotlinx.android.synthetic.main.item_simple_recycler_view.view.*
 
 class SimpleRecyclerViewAdapter(
         private val arrayList: Array<String>,
-        private val listener: SimpleRecyclerViewTappedListener
+        private val listener: OnTappedRecyclerViewListener
 )
     : RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder>() {
 

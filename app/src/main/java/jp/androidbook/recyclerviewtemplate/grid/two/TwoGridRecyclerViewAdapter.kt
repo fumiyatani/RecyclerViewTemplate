@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import jp.androidbook.recyclerviewtemplate.grid.GridTappedListener
 import kotlinx.android.synthetic.main.item_two_grid_recycler_view.view.*
 
-class TwoGridRecyclerViewAdapter(private val array: Array<String>, private val listener: GridTappedListener)
+class TwoGridRecyclerViewAdapter(private val array: Array<String>, private val listener: OnTappedRecyclerViewListener)
     : RecyclerView.Adapter<TwoGridRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,7 +26,7 @@ class TwoGridRecyclerViewAdapter(private val array: Array<String>, private val l
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setText(array[position])
         holder.itemView.setOnClickListener {
-            listener.onTappedGrid(array[position])
+            listener.onTapped(array[position])
         }
     }
 

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.R
-import jp.androidbook.recyclerviewtemplate.common.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import kotlinx.android.synthetic.main.item_simple_recycler_view.view.*
 
 class UpdateRecyclerViewAdapter(array: List<String>, private val listener: OnTappedRecyclerViewListener)

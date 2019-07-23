@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import jp.androidbook.recyclerviewtemplate.grid.GridTappedListener
 import kotlinx.android.synthetic.main.fragment_two_grid.view.*
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class TwoGridFragment : Fragment(), GridTappedListener {
+class TwoGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +36,7 @@ class TwoGridFragment : Fragment(), GridTappedListener {
         return itemView
     }
 
-    override fun onTappedGrid(text: String) {
+    override fun onTapped(text: String) {
         Toast.makeText(context, "${text}をたっぷ", Toast.LENGTH_SHORT).show()
     }
 }
