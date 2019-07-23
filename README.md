@@ -3,7 +3,7 @@
 後々充実させていきます。
 
 実装の参考URL
-[AndroidArchitecture](https://github.com/googlesamples)
+[AndroidArchitecture](https://github.com/googlesamples/android-architecture)
 
 ### どんなサンプルがあるのか？
 - 単純にリストを表示する
