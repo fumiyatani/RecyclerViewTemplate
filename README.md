@@ -12,8 +12,10 @@
 - リストの更新処理
 
 あとは趣旨からはそれるのですが、以下もサンプルとして残しています。
-- TabLayout
-- ViewPager
-- BottomNavigationView
-- FragmentへのMenu実装
-- Navigation Drawer
+- TabLayoutの実装方法
+- ViewPager・FragmentStatePagerAdapterの実装方法
+- BottomNavigationViewの実装方法
+- FragmentへのMenu実装方法
+- Navigation Drawerの実装方法
+- styleのカスタム方法
+- ConstraintのGuideLineの使い方
