@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_update.view.*
 class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
 
     private lateinit var adapter: UpdateRecyclerViewAdapter
+
     private var arrayList: ArrayList<String> = ArrayList(0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +62,7 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
             }
 
             R.id.clear -> {
-                if (arrayList.size - 1 < 1) {
+                if (arrayList.size - 1 < 0) {
                     return true
                 }
                 arrayList.removeAt(arrayList.size - 1)
