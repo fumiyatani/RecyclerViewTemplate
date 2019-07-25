@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        setSupportActionBar(toolBar)
+        setSupportActionBar(toolBar)
 
         if (savedInstanceState === null) {
             fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
