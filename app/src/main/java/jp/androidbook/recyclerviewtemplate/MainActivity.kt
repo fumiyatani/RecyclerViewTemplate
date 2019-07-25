@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import jp.androidbook.recyclerviewtemplate.grid.GridSelectionFragment
 import jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment
+import jp.androidbook.recyclerviewtemplate.staggerd.StaggerdGridFragment
 import jp.androidbook.recyclerviewtemplate.update.UpdateFragment
 import jp.androidbook.recyclerviewtemplate.util.fragmentReplace
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSupportActionBar(toolBar)
+//        setSupportActionBar(toolBar)
 
         if (savedInstanceState === null) {
             fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.navigation_grid -> {
                     fragmentReplace(supportFragmentManager, R.id.fragmentContainer, GridSelectionFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                R.id.navigation_stagger_grid -> {
+                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, StaggerdGridFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
 

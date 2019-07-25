@@ -2,4 +2,5 @@
 <resources>
     <dimen name="height_tab_layout">48dp</dimen>
     <dimen name="height_bottom_navigation_view">56dp</dimen>
+    <dimen name="elevation">8dp</dimen>
 </resources>

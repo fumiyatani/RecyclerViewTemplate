@@ -3,10 +3,15 @@
     <item
         android:id="@+id/navigation_simple"
         android:title="Simple"
-        android:icon="@drawable/ic_android"/>
+        android:icon="@drawable/ic_android" />
     <item
         android:id="@+id/navigation_grid"
         android:title="Grid"
+        android:icon="@drawable/ic_android"/>
+
+    <item
+        android:id="@+id/navigation_stagger_grid"
+        android:title="Stagger"
         android:icon="@drawable/ic_android"/>
     <item
         android:id="@+id/navigation_update"
