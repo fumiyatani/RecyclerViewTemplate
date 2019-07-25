@@ -23,31 +23,33 @@ class MainActivity : AppCompatActivity() {
 
         // Selected したら true を返すようにする
         bottomNavigation.setOnNavigationItemSelectedListener {
-            when(it.itemId) {
-                R.id.navigation_simple -> {
-                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
+            transitionFragment(it.itemId)
+        }
+    }
 
-                R.id.navigation_grid -> {
-                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, GridSelectionFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
+    private fun transitionFragment(itemId: Int): Boolean = when(itemId) {
+        R.id.navigation_simple -> {
+            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
+            true
+        }
 
-                R.id.navigation_stagger_grid -> {
-                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, StaggerdGridFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
+        R.id.navigation_grid -> {
+            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, GridSelectionFragment())
+            true
+        }
 
-                R.id.navigation_update -> {
-                    fragmentReplace(supportFragmentManager, R.id.fragmentContainer, UpdateFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
+        R.id.navigation_stagger_grid -> {
+            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, StaggerdGridFragment())
+            true
+        }
 
-                else -> {
-                    return@setOnNavigationItemSelectedListener false
-                }
-            }
+        R.id.navigation_update -> {
+            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, UpdateFragment())
+            true
+        }
+
+        else -> {
+            false
         }
     }
 
