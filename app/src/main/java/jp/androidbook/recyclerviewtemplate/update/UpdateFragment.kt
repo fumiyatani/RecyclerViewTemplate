@@ -49,13 +49,13 @@ class UpdateFragment : Fragment(),
         Toast.makeText(context, "${text}をタップ", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.menu_update_toolbar, menu)
+        inflater.inflate(R.menu.menu_update_toolbar, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
             R.id.plus -> {
                 arrayList.add(arrayList.size, "テキスト ${arrayList.size}")
                 adapter.array = arrayList

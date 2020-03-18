@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment
 import jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment
 
-class GridSelectionViewPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
+class GridSelectionViewPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment {
         return when(position) {

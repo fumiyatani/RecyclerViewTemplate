@@ -23,7 +23,7 @@ class GridSelectionFragment : Fragment() {
         val itemView = inflater.inflate(R.layout.fragment_grid_selection, container, false)
 
         val gridSelectionViewPager = itemView.gridSelectionViewPager
-        gridSelectionViewPager.adapter = GridSelectionViewPagerAdapter(fragmentManager!!)
+        gridSelectionViewPager.adapter = GridSelectionViewPagerAdapter(parentFragmentManager)
 
         val gridSelectionTabLayout = itemView.gridSelectionTabLayout
         gridSelectionTabLayout.setupWithViewPager(gridSelectionViewPager)
