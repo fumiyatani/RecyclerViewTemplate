@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main_content"
+    app:startDestination="@id/simpleRecyclerFragment">
+    <fragment
+        android:id="@+id/simpleRecyclerFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment"
+        android:label="fragment_simple_recycler"
+        tools:layout="@layout/fragment_simple_recycler" />
+    <fragment
+        android:id="@+id/gridSelectionFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.grid.GridSelectionFragment"
+        android:label="fragment_grid_selection"
+        tools:layout="@layout/fragment_grid_selection" />
+    <fragment
+        android:id="@+id/staggerdGridFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.staggerd.StaggerdGridFragment"
+        android:label="fragment_staggerd_grid"
+        tools:layout="@layout/fragment_staggerd_grid" />
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" />
+    <fragment
+        android:id="@+id/threeGridFragment2"
+        android:name="jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment"
+        android:label="fragment_three_grid"
+        tools:layout="@layout/fragment_three_grid" />
+    <fragment
+        android:id="@+id/twoGridFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment"
+        android:label="fragment_two_grid"
+        tools:layout="@layout/fragment_two_grid" />
+</navigation>
