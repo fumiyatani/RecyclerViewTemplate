@@ -64,7 +64,5 @@
 
         <include layout="@layout/item_drawer_recycler_view_body" />
 
-        <include layout="@layout/item_drawer_recycler_view_body" />
-
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

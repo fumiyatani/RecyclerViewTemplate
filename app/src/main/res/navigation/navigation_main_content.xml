@@ -7,31 +7,31 @@
     <fragment
         android:id="@+id/simpleRecyclerFragment"
         android:name="jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment"
-        android:label="fragment_simple_recycler"
+        android:label="SimpleList"
         tools:layout="@layout/fragment_simple_recycler" />
     <fragment
         android:id="@+id/gridSelectionFragment"
         android:name="jp.androidbook.recyclerviewtemplate.grid.GridSelectionFragment"
-        android:label="fragment_grid_selection"
+        android:label="GridList"
         tools:layout="@layout/fragment_grid_selection" />
     <fragment
-        android:id="@+id/staggerdGridFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.staggerd.StaggerdGridFragment"
-        android:label="fragment_staggerd_grid"
+        android:id="@+id/staggeredGridFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.staggered.StaggeredGridFragment"
+        android:label="StaggeredList"
         tools:layout="@layout/fragment_staggerd_grid" />
     <fragment
         android:id="@+id/updateFragment"
         android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
-        android:label="fragment_update"
+        android:label="UpdatableList"
         tools:layout="@layout/fragment_update" />
     <fragment
         android:id="@+id/threeGridFragment2"
         android:name="jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment"
-        android:label="fragment_three_grid"
+        android:label="ThreeGridList"
         tools:layout="@layout/fragment_three_grid" />
     <fragment
         android:id="@+id/twoGridFragment"
         android:name="jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment"
-        android:label="fragment_two_grid"
+        android:label="TwoGridList"
         tools:layout="@layout/fragment_two_grid" />
 </navigation>
