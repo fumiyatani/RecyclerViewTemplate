@@ -1,55 +1,77 @@
 package jp.androidbook.recyclerviewtemplate
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import jp.androidbook.recyclerviewtemplate.grid.GridSelectionFragment
-import jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment
-import jp.androidbook.recyclerviewtemplate.staggerd.StaggerdGridFragment
-import jp.androidbook.recyclerviewtemplate.update.UpdateFragment
-import jp.androidbook.recyclerviewtemplate.util.fragmentReplace
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.OnItemClickListener
+import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
+import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(toolBar)
-
-        if (savedInstanceState === null) {
-            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
-        }
-
-        // Selected したら true を返すようにする
-        bottomNavigation.setOnNavigationItemSelectedListener {
-            transitionFragment(it.itemId)
-        }
+        setupDrawerRecyclerView()
+        setupNavigation()
     }
 
-    private fun transitionFragment(itemId: Int): Boolean = when(itemId) {
-        R.id.navigation_simple -> {
-            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, SimpleRecyclerFragment())
-            true
+    private fun setupDrawerRecyclerView() {
+        val groupAdapter = GroupAdapter<GroupieViewHolder>().apply {
+            setOnItemClickListener { item, _ ->
+                when (item.id) {
+                    DrawerListData.DrawerBodyType.SimpleList.id -> {
+                        navController.navigate(R.id.simpleRecyclerFragment)
+                    }
+                    DrawerListData.DrawerBodyType.GridTwo.id -> {
+                        navController.navigate(R.id.gridSelectionFragment)
+                    }
+                    DrawerListData.DrawerBodyType.GridThree.id -> {
+                        navController.navigate(R.id.gridSelectionFragment)
+                    }
+                    DrawerListData.DrawerBodyType.GridStaggered.id -> {
+                        navController.navigate(R.id.staggeredGridFragment)
+                    }
+                    DrawerListData.DrawerBodyType.UpdatableList.id -> {
+                        navController.navigate(R.id.updateFragment)
+                    }
+                }
+            }
         }
-
-        R.id.navigation_grid -> {
-            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, GridSelectionFragment())
-            true
+        findViewById<RecyclerView>(R.id.drawerContentRecyclerView).apply {
+            layoutManager = LinearLayoutManager(this@MainActivity).apply {
+                orientation = RecyclerView.VERTICAL
+            }
+            addItemDecoration(DividerItemDecoration(this@MainActivity, RecyclerView.VERTICAL))
+            adapter = groupAdapter
         }
-
-        R.id.navigation_stagger_grid -> {
-            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, StaggerdGridFragment())
-            true
+        val items = mutableListOf<Item>(
+            DrawerHeaderItem()
+        )
+        for (drawerBodyType: DrawerListData.DrawerBodyType in DrawerListData.getDrawerBodyList()) {
+            items.add(DrawerBodyItem(drawerBodyType.id, drawerBodyType.drawerBodyText))
         }
+        groupAdapter.update(items)
+    }
 
-        R.id.navigation_update -> {
-            fragmentReplace(supportFragmentManager, R.id.fragmentContainer, UpdateFragment())
-            true
-        }
-
-        else -> {
-            false
+    private fun setupNavigation() {
+        navController = findNavController(R.id.mainNavHostFragment)
+        val appBarConfiguration = AppBarConfiguration(navController.graph) // todo Drawer を渡す
+        findViewById<Toolbar>(R.id.toolBar).apply {
+            setupActionBarWithNavController(navController, appBarConfiguration)
         }
     }
 }

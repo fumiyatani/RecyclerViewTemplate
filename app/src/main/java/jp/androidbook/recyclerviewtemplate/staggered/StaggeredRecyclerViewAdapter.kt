@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.staggerd
+package jp.androidbook.recyclerviewtemplate.staggered
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.item_staggerd_recycler_view.view.*
+import kotlinx.android.synthetic.main.item_staggered_recycler_view.view.*
 
-class StaggerdfRecyclerViewAdapter(
+class StaggeredRecyclerViewAdapter(
     arrayList: List<String>,
     private val listener: OnTappedRecyclerViewListener)
-    : RecyclerView.Adapter<StaggerdfRecyclerViewAdapter.ViewHolder>() {
+    : RecyclerView.Adapter<StaggeredRecyclerViewAdapter.ViewHolder>() {
 
     var arrayList = arrayList
     set(arrayList) {
@@ -23,7 +23,7 @@ class StaggerdfRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_staggerd_recycler_view,
+            R.layout.item_staggered_recycler_view,
             parent,
             false)
 

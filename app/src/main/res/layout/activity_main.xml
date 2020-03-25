@@ -24,28 +24,15 @@
             app:title="@string/app_name"
             app:titleTextColor="@android:color/white" />
 
-        <FrameLayout
-            android:id="@+id/fragmentContainer"
+        <fragment
+            android:id="@+id/mainNavHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolBar"/>
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_bottom_navigation_view"
-            android:theme="@style/BottomNavigation"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_bottom_navigation_view"
-            app:labelVisibilityMode="labeled"
-            app:itemIconTint="@drawable/bottom_navigation_colors"
-            app:itemTextColor="@drawable/bottom_navigation_colors"/>
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navigation_main_content"
+            app:layout_constraintTop_toBottomOf="@id/toolBar"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -57,7 +44,7 @@
         android:fitsSystemWindows="true">
 
         <include
-            layout="@layout/item_navigation_view"/>
+            layout="@layout/item_drawer_content"/>
 
     </com.google.android.material.navigation.NavigationView>
 

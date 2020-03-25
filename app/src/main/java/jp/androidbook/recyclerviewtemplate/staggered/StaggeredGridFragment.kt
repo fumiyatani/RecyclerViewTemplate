@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.staggerd
+package jp.androidbook.recyclerviewtemplate.staggered
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.fragment_staggerd_grid.view.*
+import kotlinx.android.synthetic.main.fragment_staggered_grid.view.*
 
-class StaggerdGridFragment : Fragment(), OnTappedRecyclerViewListener {
+class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
     private lateinit var staggerdRecyclerView: RecyclerView
-    private lateinit var staggerdRecyclerAdapter: StaggerdfRecyclerViewAdapter
+    private lateinit var staggerdRecyclerAdapter: StaggeredRecyclerViewAdapter
 
     private lateinit var arrayList: ArrayList<String>
 
@@ -23,7 +23,7 @@ class StaggerdGridFragment : Fragment(), OnTappedRecyclerViewListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val itemView = inflater.inflate(R.layout.fragment_staggerd_grid, container, false)
+        val itemView = inflater.inflate(R.layout.fragment_staggered_grid, container, false)
 
         val fab = itemView.fab
         fab.setOnClickListener {
@@ -32,7 +32,7 @@ class StaggerdGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
         arrayList = ArrayList(0)
 
-        staggerdRecyclerAdapter = StaggerdfRecyclerViewAdapter(arrayList, this)
+        staggerdRecyclerAdapter = StaggeredRecyclerViewAdapter(arrayList, this)
 
         staggerdRecyclerView = itemView.staggerdRecyclerView
         staggerdRecyclerView.apply {

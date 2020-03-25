@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".staggerd.StaggerdGridFragment">
+    tools:context=".staggered.StaggeredGridFragment">
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/staggerdRecyclerView"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-       tools:listitem="@layout/item_staggerd_recycler_view"
+       tools:listitem="@layout/item_staggered_recycler_view"
        app:layout_constraintTop_toTopOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
