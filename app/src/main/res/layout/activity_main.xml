@@ -44,7 +44,7 @@
         android:fitsSystemWindows="true">
 
         <include
-            layout="@layout/item_navigation_view"/>
+            layout="@layout/item_drawer_content"/>
 
     </com.google.android.material.navigation.NavigationView>
 
