@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.fragment_staggerd_grid.view.*
+import kotlinx.android.synthetic.main.fragment_staggered_grid.view.*
 
 class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
@@ -23,7 +23,7 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val itemView = inflater.inflate(R.layout.fragment_staggerd_grid, container, false)
+        val itemView = inflater.inflate(R.layout.fragment_staggered_grid, container, false)
 
         val fab = itemView.fab
         fab.setOnClickListener {

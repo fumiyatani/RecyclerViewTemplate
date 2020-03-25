@@ -18,7 +18,7 @@
         android:id="@+id/staggeredGridFragment"
         android:name="jp.androidbook.recyclerviewtemplate.staggered.StaggeredGridFragment"
         android:label="StaggeredList"
-        tools:layout="@layout/fragment_staggerd_grid" />
+        tools:layout="@layout/fragment_staggered_grid" />
     <fragment
         android:id="@+id/updateFragment"
         android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
