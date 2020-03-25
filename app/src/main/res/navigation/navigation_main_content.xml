@@ -24,14 +24,4 @@
         android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
         android:label="UpdatableList"
         tools:layout="@layout/fragment_update" />
-    <fragment
-        android:id="@+id/threeGridFragment2"
-        android:name="jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment"
-        android:label="ThreeGridList"
-        tools:layout="@layout/fragment_three_grid" />
-    <fragment
-        android:id="@+id/twoGridFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment"
-        android:label="TwoGridList"
-        tools:layout="@layout/fragment_two_grid" />
 </navigation>
