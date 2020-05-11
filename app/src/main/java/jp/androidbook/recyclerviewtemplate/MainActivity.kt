@@ -1,18 +1,19 @@
 package jp.androidbook.recyclerviewtemplate
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.OnItemClickListener
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,6 +21,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,9 +73,25 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         navController = findNavController(R.id.mainNavHostFragment)
-        val appBarConfiguration = AppBarConfiguration(navController.graph) // todo Drawer を渡す
-        findViewById<Toolbar>(R.id.toolBar).apply {
-            setupActionBarWithNavController(navController, appBarConfiguration)
-        }
+        navigationView = findViewById(R.id.navigationView)
+        navigationView.setupWithNavController(navController)
+        drawerLayout = findViewById(R.id.drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.simpleRecyclerFragment,
+                R.id.gridSelectionFragment,
+                R.id.staggeredGridFragment,
+                R.id.updateFragment
+            ),
+            drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    /**
+     * Navigationのnavigateを機能をサポートする
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration)
     }
 }
