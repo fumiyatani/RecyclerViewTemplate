@@ -1,7 +1,8 @@
-package jp.androidbook.recyclerviewtemplate
+package jp.androidbook.recyclerviewtemplate.drawer_menu
 
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
+import jp.androidbook.recyclerviewtemplate.R
 import kotlinx.android.synthetic.main.item_drawer_body.*
 
 class DrawerBodyItem(private val drawerBodyId: Long, private val drawerText: String) : Item(drawerBodyId) {

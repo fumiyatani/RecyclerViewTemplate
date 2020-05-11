@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate
+package jp.androidbook.recyclerviewtemplate.drawer_menu
 
 object DrawerListData {
     fun getDrawerBodyList(): Array<DrawerBodyType> {

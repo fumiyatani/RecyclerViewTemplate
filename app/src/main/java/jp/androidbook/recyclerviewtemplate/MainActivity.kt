@@ -16,6 +16,9 @@ import com.google.android.material.navigation.NavigationView
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
+import jp.androidbook.recyclerviewtemplate.drawer_menu.DrawerBodyItem
+import jp.androidbook.recyclerviewtemplate.drawer_menu.DrawerHeaderItem
+import jp.androidbook.recyclerviewtemplate.drawer_menu.DrawerListData
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
