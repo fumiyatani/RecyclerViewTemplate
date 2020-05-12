@@ -58,7 +58,7 @@ class UpdateFragment : Fragment(),
         return when(item.itemId) {
             R.id.plus -> {
                 arrayList.add(arrayList.size, "テキスト ${arrayList.size}")
-                adapter.array = arrayList
+                adapter.addItem(arrayList)
                 true
             }
 
@@ -67,7 +67,7 @@ class UpdateFragment : Fragment(),
                     return true
                 }
                 arrayList.removeAt(arrayList.size - 1)
-                adapter.array = arrayList
+                adapter.removeItem(arrayList)
                 true
             }
 
