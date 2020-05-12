@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.fragment_staggered_grid.view.*
 
 class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
-    private lateinit var staggerdRecyclerView: RecyclerView
-    private lateinit var staggerdRecyclerAdapter: StaggeredRecyclerViewAdapter
+    private lateinit var staggeredRecyclerView: RecyclerView
+    private lateinit var staggeredRecyclerAdapter: StaggeredRecyclerViewAdapter
 
     private lateinit var arrayList: ArrayList<String>
 
@@ -32,12 +32,12 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
         arrayList = ArrayList(0)
 
-        staggerdRecyclerAdapter = StaggeredRecyclerViewAdapter(arrayList, this)
+        staggeredRecyclerAdapter = StaggeredRecyclerViewAdapter(arrayList, this)
 
-        staggerdRecyclerView = itemView.staggerdRecyclerView
-        staggerdRecyclerView.apply {
+        staggeredRecyclerView = itemView.staggerdRecyclerView
+        staggeredRecyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(3, RecyclerView.VERTICAL)
-            adapter = staggerdRecyclerAdapter
+            adapter = staggeredRecyclerAdapter
         }
 
         return itemView
@@ -65,7 +65,7 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
             }
         }
         arrayList.add(arrayList.size, element)
-        staggerdRecyclerAdapter.arrayList = arrayList
+        staggeredRecyclerAdapter.arrayList = arrayList
     }
 
     override fun onTapped(text: String) {
