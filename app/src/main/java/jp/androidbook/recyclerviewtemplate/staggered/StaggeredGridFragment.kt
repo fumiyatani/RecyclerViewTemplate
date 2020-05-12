@@ -65,7 +65,7 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
             }
         }
         arrayList.add(arrayList.size, element)
-        staggeredRecyclerAdapter.arrayList = arrayList
+        staggeredRecyclerAdapter.addItem(arrayList)
     }
 
     override fun onTapped(text: String) {
