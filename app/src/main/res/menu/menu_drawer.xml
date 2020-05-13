@@ -27,4 +27,11 @@
             android:title="Update"
             android:icon="@drawable/ic_android"/>
     </group>
+
+    <group android:id="@+id/animation" android:checkableBehavior="none">
+        <item
+            android:id="@+id/animationFragment"
+            android:title="Animation"
+            android:icon="@drawable/ic_android"/>
+    </group>
 </menu>
