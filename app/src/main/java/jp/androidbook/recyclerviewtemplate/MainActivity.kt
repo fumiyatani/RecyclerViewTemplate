@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.simpleRecyclerFragment,
                 R.id.gridSelectionFragment,
                 R.id.staggeredGridFragment,
-                R.id.updateFragment
+                R.id.updateFragment,
+                R.id.animationFragment
             ),
             drawerLayout
         )

@@ -24,4 +24,9 @@
         android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
         android:label="UpdatableList"
         tools:layout="@layout/fragment_update" />
+    <fragment
+        android:id="@+id/animationFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
+        android:label="AnimationList"
+        tools:layout="@layout/fragment_update" />
 </navigation>
