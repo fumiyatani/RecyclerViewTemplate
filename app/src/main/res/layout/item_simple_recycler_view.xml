@@ -2,9 +2,20 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="simpleText"
+            type="jp.androidbook.recyclerviewtemplate.simple.SimpleText" />
+
+        <variable
+            name="viewModel"
+            type="jp.androidbook.recyclerviewtemplate.simple.SimpleListViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onClickSimpleTextRow(simpleText)}">
 
         <TextView
             android:id="@+id/textView"
@@ -15,6 +26,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:textAlignment="viewStart"
+            android:text="@{simpleText.text}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

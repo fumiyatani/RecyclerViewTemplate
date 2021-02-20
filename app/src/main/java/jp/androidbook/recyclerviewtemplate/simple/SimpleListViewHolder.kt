@@ -9,8 +9,9 @@ class SimpleListViewHolder(
     private val binding: ItemSimpleRecyclerViewBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(text: String) {
-        binding.textView.text = text
+    fun bind(simpleText: SimpleText, viewModel: SimpleListViewModel) {
+        binding.simpleText = simpleText
+        binding.viewModel = viewModel
     }
 
     companion object {

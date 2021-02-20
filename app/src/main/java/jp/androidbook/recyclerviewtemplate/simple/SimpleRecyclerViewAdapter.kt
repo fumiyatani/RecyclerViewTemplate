@@ -1,30 +1,33 @@
 package jp.androidbook.recyclerviewtemplate.simple
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import androidx.recyclerview.widget.DiffUtil.ItemCallback
+import androidx.recyclerview.widget.ListAdapter
 
 class SimpleRecyclerViewAdapter(
-    private val arrayList: Array<String>,
-    private val listener: OnTappedRecyclerViewListener
-) : RecyclerView.Adapter<SimpleListViewHolder>() {
+    diffUtil: ItemCallback<SimpleText> = getSimpleTextDiffUtil(),
+    private val viewModel: SimpleListViewModel
+) : ListAdapter<SimpleText, SimpleListViewHolder>(diffUtil) {
 
-    // ViewHolderを生成
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleListViewHolder {
         return SimpleListViewHolder.createViewHolder(parent)
     }
 
-    // RecyclerViewで表示するリストの数を返す
-    override fun getItemCount(): Int {
-        return arrayList.size
+    override fun onBindViewHolder(holder: SimpleListViewHolder, position: Int) {
+        val item = getItem(position)
+        holder.bind(item, viewModel)
     }
 
-    // ViewHolderのViewと値を繋げる
-    override fun onBindViewHolder(holder: SimpleListViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            listener.onTapped(arrayList[position])
-        }
+    companion object {
+        private fun getSimpleTextDiffUtil() = object : ItemCallback<SimpleText>() {
 
-        holder.bind(arrayList[position])
+            override fun areContentsTheSame(oldItem: SimpleText, newItem: SimpleText): Boolean {
+                return oldItem.text == newItem.text
+            }
+
+            override fun areItemsTheSame(oldItem: SimpleText, newItem: SimpleText): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 }

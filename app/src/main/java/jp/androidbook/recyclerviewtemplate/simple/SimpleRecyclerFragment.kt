@@ -10,18 +10,19 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.databinding.FragmentSimpleRecyclerBinding
 
 /**
  * SimpleなRecyclerViewのサンプル
  */
 @AndroidEntryPoint
-class SimpleRecyclerFragment : Fragment(), OnTappedRecyclerViewListener {
+class SimpleRecyclerFragment : Fragment() {
 
     private lateinit var binding: FragmentSimpleRecyclerBinding
 
     private val simpleListViewModel: SimpleListViewModel by viewModels()
+
+    private lateinit var simpleListAdapter: SimpleRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,21 +37,26 @@ class SimpleRecyclerFragment : Fragment(), OnTappedRecyclerViewListener {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
+        observeLiveData()
     }
 
     private fun setupRecyclerView() {
-        val items = Array(100) { "テスト $it" }
-
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        val simpleRecyclerViewAdapter = SimpleRecyclerViewAdapter(items, this)
+        simpleListAdapter = SimpleRecyclerViewAdapter(viewModel = simpleListViewModel)
 
         binding.simpleRecyclerView.apply {
             layoutManager = linearLayoutManager
-            adapter = simpleRecyclerViewAdapter
+            adapter = simpleListAdapter
         }
     }
 
-    override fun onTapped(text: String) {
-        Toast.makeText(context, "${text}をタップ", Toast.LENGTH_SHORT).show()
+    private fun observeLiveData() {
+        simpleListViewModel.simpleTextList.observe(viewLifecycleOwner) {
+            simpleListAdapter.submitList(it)
+        }
+
+        simpleListViewModel.selectEvent.observe(viewLifecycleOwner, "showToast") {
+            Toast.makeText(context, "${it}をタップ", Toast.LENGTH_SHORT).show()
+        }
     }
 }
