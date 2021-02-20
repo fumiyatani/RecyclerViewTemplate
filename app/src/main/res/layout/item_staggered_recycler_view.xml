@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/staggerdImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/sym_def_app_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/staggerdTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="テスト"
-        app:layout_constraintTop_toBottomOf="@+id/staggerdImageView"
-        app:layout_constraintStart_toStartOf="@+id/staggerdImageView"
-        app:layout_constraintEnd_toEndOf="@id/staggerdImageView"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/staggeredImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/sym_def_app_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/staggeredTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="テスト"
+            app:layout_constraintTop_toBottomOf="@+id/staggeredImageView"
+            app:layout_constraintStart_toStartOf="@+id/staggeredImageView"
+            app:layout_constraintEnd_toEndOf="@id/staggeredImageView"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

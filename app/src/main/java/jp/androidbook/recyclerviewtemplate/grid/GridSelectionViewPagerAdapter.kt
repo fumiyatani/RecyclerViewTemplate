@@ -6,41 +6,25 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment
 import jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment
 
-class GridSelectionViewPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class GridSelectionViewPagerAdapter(
+    fm: FragmentManager
+) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment {
-        return when(position) {
-            0 -> {
+        return when (GridSelectionType.from(position)) {
+            GridSelectionType.TWO_GRID ->
                 TwoGridFragment()
-            }
 
-            1 -> {
+            GridSelectionType.THREE_GRID ->
                 ThreeGridFragment()
-            }
-
-            else -> {
-                Fragment()
-            }
         }
     }
 
     override fun getCount(): Int {
-        return 2
+        return GridSelectionType.values().size
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return when(position) {
-            0 -> {
-                "2Grid"
-            }
-
-            1 -> {
-                "3Grid"
-            }
-
-            else -> {
-                ""
-            }
-        }
+    override fun getPageTitle(position: Int): CharSequence {
+        return GridSelectionType.from(position).gridTitle
     }
 }

@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
-import jp.androidbook.recyclerviewtemplate.R
+import jp.androidbook.recyclerviewtemplate.databinding.FragmentTwoGridBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -18,22 +17,33 @@ import jp.androidbook.recyclerviewtemplate.R
  */
 class TwoGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
+    private lateinit var binding: FragmentTwoGridBinding
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding = FragmentTwoGridBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        val itemView = inflater.inflate(R.layout.fragment_two_grid, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val array = Array(100) {i -> "テスト $i" }
+        setupRecyclerView()
+    }
 
-        val twoGridRecyclerView: RecyclerView = itemView.findViewById(R.id.twoGridRecyclerView)
-        twoGridRecyclerView.apply {
-            layoutManager = GridLayoutManager(this@TwoGridFragment.context, 2)
-            adapter = TwoGridRecyclerViewAdapter(array, this@TwoGridFragment)
+    private fun setupRecyclerView() {
+        val items = Array(100) { i -> "テスト $i" }
+
+        val gridLayoutManager = GridLayoutManager(this@TwoGridFragment.context, 2)
+        val twoGridRecyclerViewAdapter = TwoGridRecyclerViewAdapter(items, this)
+
+        binding.twoGridRecyclerView.apply {
+            layoutManager = gridLayoutManager
+            adapter = twoGridRecyclerViewAdapter
         }
-
-        return itemView
     }
 
     override fun onTapped(text: String) {

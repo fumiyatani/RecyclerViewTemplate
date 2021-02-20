@@ -8,31 +8,42 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
-import jp.androidbook.recyclerviewtemplate.R
+import jp.androidbook.recyclerviewtemplate.databinding.FragmentThreeGridBinding
 
 /**
  * A simple [Fragment] subclass.
- *
  */
 class ThreeGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
+    private lateinit var binding: FragmentThreeGridBinding
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding = FragmentThreeGridBinding.inflate(inflater, container, false)
 
-        val itemView = inflater.inflate(R.layout.fragment_three_grid, container, false)
+        return binding.root
+    }
 
-        val array = Array(100) {i -> "テスト $i" }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val threeGridRecyclerView: RecyclerView = itemView.findViewById(R.id.threeGridRecyclerView)
-        threeGridRecyclerView.apply {
-            layoutManager = GridLayoutManager(this@ThreeGridFragment.context, 3)
-            adapter = ThreeGridRecyclerViewAdapter(array, this@ThreeGridFragment)
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        val items = Array(100) { i -> "テスト $i" }
+
+        val gridLayoutManager = GridLayoutManager(context, 3)
+        val threeGridRecyclerViewAdapter = ThreeGridRecyclerViewAdapter(items, this)
+
+        binding.threeGridRecyclerView.apply {
+            layoutManager = gridLayoutManager
+            adapter = threeGridRecyclerViewAdapter
         }
-        return itemView
     }
 
     override fun onTapped(text: String) {

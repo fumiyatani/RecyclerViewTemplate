@@ -34,7 +34,7 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
         staggeredRecyclerAdapter = StaggeredRecyclerViewAdapter(arrayList, this)
 
-        staggeredRecyclerView = itemView.findViewById(R.id.staggerdRecyclerView)
+        staggeredRecyclerView = itemView.findViewById(R.id.staggeredRecyclerView)
         staggeredRecyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(3, RecyclerView.VERTICAL)
             adapter = staggeredRecyclerAdapter
