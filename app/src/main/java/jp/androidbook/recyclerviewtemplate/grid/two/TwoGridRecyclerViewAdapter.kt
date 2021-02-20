@@ -3,10 +3,11 @@ package jp.androidbook.recyclerviewtemplate.grid.two
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.item_two_grid_recycler_view.view.*
 
 class TwoGridRecyclerViewAdapter(private val array: Array<String>, private val listener: OnTappedRecyclerViewListener)
     : RecyclerView.Adapter<TwoGridRecyclerViewAdapter.ViewHolder>() {
@@ -31,8 +32,8 @@ class TwoGridRecyclerViewAdapter(private val array: Array<String>, private val l
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val imageView = itemView.imageView
-        private val textView = itemView.textView2
+        private val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        private val textView: TextView = itemView.findViewById(R.id.textView2)
 
         fun setText(text: String) {
             textView.text = text

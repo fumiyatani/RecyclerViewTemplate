@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.fragment_three_grid.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -27,7 +27,7 @@ class ThreeGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
         val array = Array(100) {i -> "テスト $i" }
 
-        val threeGridRecyclerView = itemView.threeGridRecyclerView
+        val threeGridRecyclerView: RecyclerView = itemView.findViewById(R.id.threeGridRecyclerView)
         threeGridRecyclerView.apply {
             layoutManager = GridLayoutManager(this@ThreeGridFragment.context, 3)
             adapter = ThreeGridRecyclerViewAdapter(array, this@ThreeGridFragment)

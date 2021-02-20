@@ -3,10 +3,10 @@ package jp.androidbook.recyclerviewtemplate.update
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.R
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
-import kotlinx.android.synthetic.main.item_simple_recycler_view.view.*
 
 class UpdateRecyclerViewAdapter(// ここは公開する
     private var array: List<String>, private val listener: OnTappedRecyclerViewListener)
@@ -26,9 +26,9 @@ class UpdateRecyclerViewAdapter(// ここは公開する
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setText(array.get(position))
+        holder.setText(array[position])
         holder.itemView.setOnClickListener {
-            listener.onTapped(array.get(position))
+            listener.onTapped(array[position])
         }
     }
 
@@ -45,7 +45,7 @@ class UpdateRecyclerViewAdapter(// ここは公開する
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val textView = itemView.textView
+        private val textView: TextView = itemView.findViewById(R.id.textView)
 
         fun setText(text: String) {
             textView.text = text

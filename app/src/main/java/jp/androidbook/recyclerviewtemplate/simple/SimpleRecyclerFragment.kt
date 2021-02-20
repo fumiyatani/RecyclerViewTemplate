@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.fragment_simple_recycler.view.*
 
 /**
  * SimpleなRecyclerViewのサンプル
@@ -27,7 +26,7 @@ class SimpleRecyclerFragment : Fragment(),
 
         val array = Array(100) {"テスト $it"}
 
-        val simpleRecyclerView = itemView.simpleRecyclerView
+        val simpleRecyclerView: RecyclerView = itemView.findViewById(R.id.simpleRecyclerView)
         simpleRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@SimpleRecyclerFragment.context, RecyclerView.VERTICAL, false)
             adapter = SimpleRecyclerViewAdapter(

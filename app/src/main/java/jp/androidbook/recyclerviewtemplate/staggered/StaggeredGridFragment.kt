@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.fragment_staggered_grid.view.*
 
 class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
@@ -25,7 +25,7 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
     ): View? {
         val itemView = inflater.inflate(R.layout.fragment_staggered_grid, container, false)
 
-        val fab = itemView.fab
+        val fab: FloatingActionButton = itemView.findViewById(R.id.fab)
         fab.setOnClickListener {
             onClickFAB()
         }
@@ -34,7 +34,7 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
         staggeredRecyclerAdapter = StaggeredRecyclerViewAdapter(arrayList, this)
 
-        staggeredRecyclerView = itemView.staggerdRecyclerView
+        staggeredRecyclerView = itemView.findViewById(R.id.staggerdRecyclerView)
         staggeredRecyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(3, RecyclerView.VERTICAL)
             adapter = staggeredRecyclerAdapter
