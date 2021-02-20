@@ -1,32 +1,19 @@
 package jp.androidbook.recyclerviewtemplate.simple
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
-import jp.androidbook.recyclerviewtemplate.R
+import jp.androidbook.recyclerviewtemplate.databinding.ItemSimpleRecyclerViewBinding
 
 class SimpleRecyclerViewAdapter(
-        private val arrayList: Array<String>,
-        private val listener: OnTappedRecyclerViewListener
+    private val arrayList: Array<String>,
+    private val listener: OnTappedRecyclerViewListener
 ) : RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder>() {
-
-    interface SimpleRecyclerViewTappedListener {
-        fun onTapped(text: String)
-    }
 
     // ViewHolderを生成
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_simple_recycler_view,
-                parent,
-                false
-        )
-        return ViewHolder(
-            itemView
-        )
+        return ViewHolder.createViewHolder(parent)
     }
 
     // RecyclerViewで表示するリストの数を返す
@@ -42,11 +29,21 @@ class SimpleRecyclerViewAdapter(
         }
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val textView: TextView = itemView.findViewById(R.id.textView)
+    class ViewHolder(
+        private val binding: ItemSimpleRecyclerViewBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun setText(text: String) {
-            textView.text = text
+            binding.textView.text = text
+        }
+
+        companion object {
+            fun createViewHolder(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemSimpleRecyclerViewBinding.inflate(layoutInflater, parent, false)
+
+                return ViewHolder(binding)
+            }
         }
     }
 }

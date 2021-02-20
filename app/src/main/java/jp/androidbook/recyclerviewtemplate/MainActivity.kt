@@ -2,34 +2,38 @@ package jp.androidbook.recyclerviewtemplate
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
+import jp.androidbook.recyclerviewtemplate.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     private lateinit var navController: NavController
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navigationView: NavigationView
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolBar))
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        setSupportActionBar(binding.toolBar)
         setupNavigation()
     }
 
     private fun setupNavigation() {
         navController = findNavController(R.id.mainNavHostFragment)
-        navigationView = findViewById(R.id.navigationView)
-        navigationView.setupWithNavController(navController)
-        drawerLayout = findViewById(R.id.drawerLayout)
+
+        binding.navigationView.apply {
+            setupWithNavController(navController)
+        }
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.simpleRecyclerFragment,
@@ -37,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.staggeredGridFragment,
                 R.id.updateFragment
             ),
-            drawerLayout
+            binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }

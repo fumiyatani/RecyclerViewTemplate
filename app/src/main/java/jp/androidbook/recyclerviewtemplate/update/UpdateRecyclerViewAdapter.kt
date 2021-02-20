@@ -1,31 +1,23 @@
 package jp.androidbook.recyclerviewtemplate.update
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import jp.androidbook.recyclerviewtemplate.R
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 
-class UpdateRecyclerViewAdapter(// ここは公開する
-    private var array: List<String>, private val listener: OnTappedRecyclerViewListener)
-    : RecyclerView.Adapter<UpdateRecyclerViewAdapter.ViewHolder>() {
+class UpdateRecyclerViewAdapter(
+    private var array: List<String>,
+    private val listener: OnTappedRecyclerViewListener
+) : RecyclerView.Adapter<UpdateViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_simple_recycler_view,
-            parent,
-            false
-        )
-        return ViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpdateViewHolder {
+        return UpdateViewHolder.createViewHolder(parent)
     }
 
     override fun getItemCount(): Int {
         return array.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UpdateViewHolder, position: Int) {
         holder.setText(array[position])
         holder.itemView.setOnClickListener {
             listener.onTapped(array[position])
@@ -42,13 +34,5 @@ class UpdateRecyclerViewAdapter(// ここは公開する
         val currentPosition = array.count()
         this.array = array
         notifyItemRemoved(currentPosition)
-    }
-
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val textView: TextView = itemView.findViewById(R.id.textView)
-
-        fun setText(text: String) {
-            textView.text = text
-        }
     }
 }

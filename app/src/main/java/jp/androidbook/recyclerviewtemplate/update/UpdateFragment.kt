@@ -7,15 +7,17 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import jp.androidbook.recyclerviewtemplate.R
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.R
+import jp.androidbook.recyclerviewtemplate.databinding.FragmentUpdateBinding
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class UpdateFragment : Fragment(),
-    OnTappedRecyclerViewListener {
+class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
+
+    private lateinit var binding: FragmentUpdateBinding
 
     private lateinit var adapter: UpdateRecyclerViewAdapter
 
@@ -27,21 +29,29 @@ class UpdateFragment : Fragment(),
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding = FragmentUpdateBinding.inflate(inflater, container, false)
 
-        val itemView = inflater.inflate(R.layout.fragment_update, container, false)
+        return binding.root
+    }
 
-        adapter = UpdateRecyclerViewAdapter(arrayList, this@UpdateFragment)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val updateRecyclerView: RecyclerView = itemView.findViewById(R.id.updateRecyclerView)
-        updateRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@UpdateFragment.context, RecyclerView.VERTICAL, false)
-            adapter = this@UpdateFragment.adapter
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        val updateRecyclerViewAdapter = UpdateRecyclerViewAdapter(arrayList, this)
+
+        binding.updateRecyclerView.apply {
+            layoutManager = linearLayoutManager
+            adapter = updateRecyclerViewAdapter
         }
-
-        return itemView
     }
 
     override fun onTapped(text: String) {
@@ -54,7 +64,7 @@ class UpdateFragment : Fragment(),
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.plus -> {
                 arrayList.add(arrayList.size, "テキスト ${arrayList.size}")
                 adapter.addItem(arrayList)
