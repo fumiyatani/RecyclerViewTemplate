@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.item_staggered_recycler_view.view.*
 
 class StaggeredRecyclerViewAdapter(
     private var arrayList: List<String>,
@@ -40,6 +39,6 @@ class StaggeredRecyclerViewAdapter(
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val textView: TextView = itemView.staggerdTextView
+        val textView: TextView = itemView.findViewById(R.id.staggerdTextView)
     }
 }

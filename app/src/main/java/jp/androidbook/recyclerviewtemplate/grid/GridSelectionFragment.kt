@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.fragment_grid_selection.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -22,10 +23,10 @@ class GridSelectionFragment : Fragment() {
 
         val itemView = inflater.inflate(R.layout.fragment_grid_selection, container, false)
 
-        val gridSelectionViewPager = itemView.gridSelectionViewPager
+        val gridSelectionViewPager: ViewPager = itemView.findViewById(R.id.gridSelectionViewPager)
         gridSelectionViewPager.adapter = GridSelectionViewPagerAdapter(parentFragmentManager)
 
-        val gridSelectionTabLayout = itemView.gridSelectionTabLayout
+        val gridSelectionTabLayout: TabLayout = itemView.findViewById(R.id.gridSelectionTabLayout)
         gridSelectionTabLayout.setupWithViewPager(gridSelectionViewPager)
 
         return itemView

@@ -7,13 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
-import kotlinx.android.synthetic.main.item_simple_recycler_view.view.*
 
 class SimpleRecyclerViewAdapter(
         private val arrayList: Array<String>,
         private val listener: OnTappedRecyclerViewListener
-)
-    : RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder>() {
 
     interface SimpleRecyclerViewTappedListener {
         fun onTapped(text: String)
@@ -45,7 +43,7 @@ class SimpleRecyclerViewAdapter(
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val textView: TextView = itemView.textView
+        private val textView: TextView = itemView.findViewById(R.id.textView)
 
         fun setText(text: String) {
             textView.text = text
