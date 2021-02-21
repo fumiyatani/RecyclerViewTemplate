@@ -1,8 +1,8 @@
-package jp.androidbook.recyclerviewtemplate.update
+package jp.androidbook.recyclerviewtemplate.ui.update
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.ui.OnTappedRecyclerViewListener
 
 class UpdateRecyclerViewAdapter(
     private var array: List<String>,

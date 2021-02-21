@@ -1,9 +1,9 @@
-package jp.androidbook.recyclerviewtemplate.staggered
+package jp.androidbook.recyclerviewtemplate.ui.staggered
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.ui.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.databinding.ItemStaggeredRecyclerViewBinding
 
 class StaggeredRecyclerViewAdapter(

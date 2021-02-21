@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate
+package jp.androidbook.recyclerviewtemplate.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
+import jp.androidbook.recyclerviewtemplate.R
 import jp.androidbook.recyclerviewtemplate.databinding.ActivityMainBinding
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.staggered
+package jp.androidbook.recyclerviewtemplate.ui.staggered
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.ui.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
 
 class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {

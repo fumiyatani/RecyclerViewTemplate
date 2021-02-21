@@ -6,22 +6,22 @@
     app:startDestination="@id/simpleRecyclerFragment">
     <fragment
         android:id="@+id/simpleRecyclerFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.simple.SimpleRecyclerFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.ui.simple.SimpleRecyclerFragment"
         android:label="SimpleList"
         tools:layout="@layout/fragment_simple_recycler" />
     <fragment
         android:id="@+id/gridSelectionFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.grid.GridSelectionFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.ui.grid.GridSelectionFragment"
         android:label="GridList"
         tools:layout="@layout/fragment_grid_selection" />
     <fragment
         android:id="@+id/staggeredGridFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.staggered.StaggeredGridFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.ui.staggered.StaggeredGridFragment"
         android:label="StaggeredList"
         tools:layout="@layout/fragment_staggered_grid" />
     <fragment
         android:id="@+id/updateFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.update.UpdateFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.ui.update.UpdateFragment"
         android:label="UpdatableList"
         tools:layout="@layout/fragment_update" />
 </navigation>

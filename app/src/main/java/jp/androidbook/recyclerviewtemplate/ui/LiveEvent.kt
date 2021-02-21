@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate
+package jp.androidbook.recyclerviewtemplate.ui
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

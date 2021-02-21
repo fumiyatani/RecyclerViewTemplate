@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.grid
+package jp.androidbook.recyclerviewtemplate.ui.grid
 
 enum class GridSelectionType(private val position: Int, val gridTitle: String) {
     TWO_GRID(0, "2Grid"),

@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.grid.two
+package jp.androidbook.recyclerviewtemplate.ui.grid.two
 
 
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.ui.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.databinding.FragmentTwoGridBinding
 
 /**

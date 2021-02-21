@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.update
+package jp.androidbook.recyclerviewtemplate.ui.update
 
 
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import jp.androidbook.recyclerviewtemplate.OnTappedRecyclerViewListener
+import jp.androidbook.recyclerviewtemplate.ui.OnTappedRecyclerViewListener
 import jp.androidbook.recyclerviewtemplate.R
 import jp.androidbook.recyclerviewtemplate.databinding.FragmentUpdateBinding
 
