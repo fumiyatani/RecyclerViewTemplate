@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.simple
+package jp.androidbook.recyclerviewtemplate.ui.simple
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.ItemCallback

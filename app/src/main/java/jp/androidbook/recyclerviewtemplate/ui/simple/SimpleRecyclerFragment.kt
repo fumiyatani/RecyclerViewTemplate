@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.simple
+package jp.androidbook.recyclerviewtemplate.ui.simple
 
 import android.os.Bundle
 import android.view.LayoutInflater

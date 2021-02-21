@@ -1,10 +1,10 @@
-package jp.androidbook.recyclerviewtemplate.grid
+package jp.androidbook.recyclerviewtemplate.ui.grid
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment
-import jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment
+import jp.androidbook.recyclerviewtemplate.ui.grid.three.ThreeGridFragment
+import jp.androidbook.recyclerviewtemplate.ui.grid.two.TwoGridFragment
 
 class GridSelectionViewPagerAdapter(
     fm: FragmentManager

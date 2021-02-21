@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.di
+package jp.androidbook.recyclerviewtemplate.ui.simple
 
 import dagger.Module
 import dagger.hilt.InstallIn

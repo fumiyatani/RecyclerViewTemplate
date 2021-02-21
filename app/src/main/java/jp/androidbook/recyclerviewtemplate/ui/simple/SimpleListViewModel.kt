@@ -1,10 +1,10 @@
-package jp.androidbook.recyclerviewtemplate.simple
+package jp.androidbook.recyclerviewtemplate.ui.simple
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jp.androidbook.recyclerviewtemplate.LiveEvent
+import jp.androidbook.recyclerviewtemplate.ui.LiveEvent
 import javax.inject.Inject
 
 @HiltViewModel

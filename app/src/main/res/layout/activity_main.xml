@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.drawerlayout.widget.DrawerLayout
-        tools:context=".MainActivity"
+        tools:context=".ui.MainActivity"
         android:id="@+id/drawerLayout"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
