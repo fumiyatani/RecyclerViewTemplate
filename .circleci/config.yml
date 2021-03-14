@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cirlecci/android:api-21-alpha
+      - image: cirlecci/android:api-30
 
     steps:
       - checkout
