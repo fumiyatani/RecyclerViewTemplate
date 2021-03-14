@@ -1,0 +1,10 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cirlecci/android:api-21-alpha
+
+    steps:
+      - checkout
+      - run: echo "hello world" # execute echo command
