@@ -21,7 +21,7 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
 
     private lateinit var adapter: UpdateRecyclerViewAdapter
 
-    private var arrayList: ArrayList<String> = ArrayList(0)
+    private lateinit var arrayList: MutableList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +46,11 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
 
     private fun setupRecyclerView() {
         val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        val updateRecyclerViewAdapter = UpdateRecyclerViewAdapter(arrayList, this)
-
+        arrayList = mutableListOf()
+        adapter = UpdateRecyclerViewAdapter( arrayList, this)
         binding.updateRecyclerView.apply {
             layoutManager = linearLayoutManager
-            adapter = updateRecyclerViewAdapter
+            adapter = this@UpdateFragment.adapter
         }
     }
 
@@ -66,17 +66,12 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.plus -> {
-                arrayList.add(arrayList.size, "テキスト ${arrayList.size}")
-                adapter.addItem(arrayList)
+                addItem()
                 true
             }
 
             R.id.clear -> {
-                if (arrayList.size - 1 < 0) {
-                    return true
-                }
-                arrayList.removeAt(arrayList.size - 1)
-                adapter.removeItem(arrayList)
+                removeItem()
                 true
             }
 
@@ -84,5 +79,19 @@ class UpdateFragment : Fragment(), OnTappedRecyclerViewListener {
                 false
             }
         }
+    }
+
+    private fun addItem() {
+        arrayList.add("テキスト ${arrayList.size}")
+        adapter.addItem(arrayList)
+    }
+
+    private fun removeItem() {
+        // 配列内が空の場合は処理をさせる必要がないので return させる
+        if (arrayList.size - 1 < 0) {
+            return
+        }
+        arrayList.removeAt(arrayList.size - 1)
+        adapter.removeItem(arrayList)
     }
 }
