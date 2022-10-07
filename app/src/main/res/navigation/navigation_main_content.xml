@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_grid_selection" />
     <fragment
         android:id="@+id/staggeredGridFragment"
-        android:name="jp.androidbook.recyclerviewtemplate.staggered.StaggeredGridFragment"
+        android:name="jp.androidbook.recyclerviewtemplate.grid.staggered.StaggeredGridFragment"
         android:label="StaggeredList"
         tools:layout="@layout/fragment_staggered_grid" />
     <fragment

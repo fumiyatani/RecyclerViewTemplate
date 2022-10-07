@@ -3,6 +3,7 @@ package jp.androidbook.recyclerviewtemplate.grid
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import jp.androidbook.recyclerviewtemplate.grid.staggered.StaggeredGridFragment
 import jp.androidbook.recyclerviewtemplate.grid.three.ThreeGridFragment
 import jp.androidbook.recyclerviewtemplate.grid.two.TwoGridFragment
 
@@ -17,6 +18,9 @@ class GridSelectionViewPagerAdapter(
 
             GridSelectionType.THREE_GRID ->
                 ThreeGridFragment()
+
+            GridSelectionType.STAGGERED_GRID ->
+                StaggeredGridFragment()
         }
     }
 

@@ -36,7 +36,8 @@ class GridSelectionFragment : Fragment() {
     private fun setupTabLayout() {
         // setup ViewPager
         val gridSelectionViewPager: ViewPager = binding.gridSelectionViewPager.apply {
-            adapter = GridSelectionViewPagerAdapter(parentFragmentManager)
+            adapter = GridSelectionViewPagerAdapter(childFragmentManager)
+            offscreenPageLimit = 2
         }
 
         // setup TabLayout

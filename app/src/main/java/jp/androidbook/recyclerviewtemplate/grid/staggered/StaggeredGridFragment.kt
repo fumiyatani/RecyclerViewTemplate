@@ -1,6 +1,7 @@
-package jp.androidbook.recyclerviewtemplate.staggered
+package jp.androidbook.recyclerviewtemplate.grid.staggered
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,15 +20,24 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
     private lateinit var arrayList: ArrayList<String>
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        Log.d(TAG, "onCreate: $CLASS_NAME")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d(TAG, "onCreateView: $CLASS_NAME")
+
         val itemView = inflater.inflate(R.layout.fragment_staggered_grid, container, false)
 
         val fab: FloatingActionButton = itemView.findViewById(R.id.fab)
         fab.setOnClickListener {
-            onClickFAB()
+            addGrid()
         }
 
         arrayList = ArrayList(0)
@@ -43,25 +53,61 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
         return itemView
     }
 
-    private fun onClickFAB() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        Log.d(TAG, "onViewCreated: $CLASS_NAME")
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d(TAG, "★★onResume★★: $CLASS_NAME")
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        Log.d(TAG, "★★onPause★★: $CLASS_NAME")
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        Log.d(TAG, "onStop: $CLASS_NAME")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Log.d(TAG, "onDestroy: $CLASS_NAME")
+    }
+
+    private fun addGrid() {
         val element: String = when {
             arrayList.size % 2 == 0 -> {
-                "これは2で割り切れます。"
-            }
-
-            arrayList.size % 4 == 0 -> {
-                "これは4で割り切れるので相当長い文章を入れようと思っています。"
+                """${arrayList.size}
+                    |medium 
+                    |medium
+                    |medium
+                    """.trimMargin()
             }
 
             arrayList.size % 5 == 0 -> {
-                """これは5で割り切れます。
-                        |なので改行をありしようと思います。
-                        |どんどん長くなります。
+                """${arrayList.size}
+                    |large
+                    |large
+                    |large
+                    |large
+                    |large
+                    |large
+                    |large
                     """.trimMargin()
             }
 
             else -> {
-                "テスト ${arrayList.size}"
+                """${arrayList.size}
+                    |small small""".trimMargin()
             }
         }
         arrayList.add(arrayList.size, element)
@@ -70,5 +116,10 @@ class StaggeredGridFragment : Fragment(), OnTappedRecyclerViewListener {
 
     override fun onTapped(text: String) {
         Toast.makeText(context, "${text}をタップ", Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        private const val TAG = "DEBUGDEBUG"
+        private const val CLASS_NAME = "StaggeredGridFragment"
     }
 }
