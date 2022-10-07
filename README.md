@@ -14,7 +14,6 @@
 - style のカスタム
 - Constraint
     - GuideLine
-- Groupie
 - Dagger Hilt
     - ViewModelのInject
 - ViewModel
