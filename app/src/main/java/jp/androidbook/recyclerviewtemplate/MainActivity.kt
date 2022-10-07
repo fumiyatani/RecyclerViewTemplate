@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.simpleRecyclerFragment,
                 R.id.gridSelectionFragment,
-                R.id.staggeredGridFragment,
                 R.id.updateFragment
             ),
             binding.drawerLayout

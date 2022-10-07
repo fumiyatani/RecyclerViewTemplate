@@ -42,10 +42,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
 
-    // Groupie
-    implementation "com.xwray:groupie:2.7.0"
-    implementation "com.xwray:groupie-kotlin-android-extensions:2.7.0"
-
     // RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 

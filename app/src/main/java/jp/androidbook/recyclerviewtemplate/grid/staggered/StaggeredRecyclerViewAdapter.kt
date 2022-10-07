@@ -1,4 +1,4 @@
-package jp.androidbook.recyclerviewtemplate.staggered
+package jp.androidbook.recyclerviewtemplate.grid.staggered
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

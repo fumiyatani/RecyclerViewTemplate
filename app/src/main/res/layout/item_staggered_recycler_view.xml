@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/staggeredImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/sym_def_app_icon"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/staggeredTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="テスト"
-            app:layout_constraintTop_toBottomOf="@+id/staggeredImageView"
-            app:layout_constraintStart_toStartOf="@+id/staggeredImageView"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/staggeredImageView"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/staggeredImageView"
+            app:layout_constraintTop_toBottomOf="@+id/staggeredImageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

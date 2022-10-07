@@ -14,13 +14,6 @@
             android:icon="@drawable/ic_android"/>
     </group>
 
-    <group android:id="@+id/staggered" android:checkableBehavior="none">
-        <item
-            android:id="@+id/staggeredGridFragment"
-            android:title="Stagger"
-            android:icon="@drawable/ic_android"/>
-    </group>
-
     <group android:id="@+id/update" android:checkableBehavior="none">
         <item
             android:id="@+id/updateFragment"
