@@ -1,18 +1,27 @@
 # .circleci/config.yaml
 version: 2.1 # to enable orb usage, you must be using circleci 2.1
 
+parameters:
+  scheduled_pipeline:
+    type: boolean
+    default: false
+
 executors:
   android:
     docker:
       - image: circleci/android:api-29
 
 jobs:
-  hello_world:
+  send_to_slack:
     executor: android
     steps:
-      - run: echo "hello world"
+      - run: 'curl -X POST -H "Content-type: application/json" -d "{\"text\": \"app_file_count: 0, domain_file_count: 0\"}" ${MY_SLACK_HOOK_URL}'
 
 workflows:
   every_pull_request:
     jobs: 
-      - hello_world
+      - send_to_slack
+  send_build_time_to_slack:
+    when: << pipeline.parameters.scheduled_pipeline >>
+    jobs:
+      - send_to_slack
